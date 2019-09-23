@@ -1,0 +1,8 @@
+
+.idea/
+
+venv/
+
+pysomq/__pycache__/
+
+unittests/__pycache__/
