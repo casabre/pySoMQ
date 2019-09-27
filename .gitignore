@@ -5,4 +5,4 @@ venv/
 
 pysomq/__pycache__/
 
-unittests/__pycache__/
+testing/__pycache__/

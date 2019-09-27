@@ -4,10 +4,9 @@ from time import sleep
 
 import zmq
 
-from pysomq.serial_client import SerialClient
-from pysomq.serial_server import SerialServer
-from pysomq.utility import connect_socket
-from unittests.utility import listen_socket, listen_feedback_pull, stream_socket
+from pysomq import SerialServer, SerialClient
+from pysomq._utility import connect_socket
+from testing._utility import listen_socket, listen_feedback_pull, stream_socket
 
 
 class TestSerialClient(unittest.TestCase):

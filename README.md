@@ -17,3 +17,6 @@ You can get the latest source code from my
 [Gitlab](https://gitlab.com/casabre/pysomq)
  repository. For extension or bugfixes, please create a new branch with
   final merge request. Any contribution is appreciated!
+  
+Currently, the Linux and Windows versions are tested and verified. OSX
+and cygwin support has to be tested.
