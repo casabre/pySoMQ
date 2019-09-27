@@ -1,6 +1,6 @@
 import zmq
 
-from .utility import subscribe_socket, connect_socket
+from ._utility import subscribe_socket, connect_socket
 
 
 class SerialClient(object):

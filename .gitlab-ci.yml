@@ -6,7 +6,7 @@ unit_test:
   only:
     changes:
       - pysomq/*
-      - unittests/*
+      - testing/*
     refs:
       - pushes
       - triggers

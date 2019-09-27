@@ -4,8 +4,8 @@ from time import sleep
 import zmq
 from serial import EIGHTBITS, PARITY_NONE, STOPBITS_ONE
 
-from pysomq.utility import bind_socket
-from .utility import listen_feedback_push
+from pysomq._utility import bind_socket
+from ._utility import listen_feedback_push
 
 
 class DummySerial:
