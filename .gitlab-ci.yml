@@ -1,5 +1,4 @@
 stages:
-  - build
   - test
   - deploy
 
@@ -31,7 +30,7 @@ test job:
       junit:
         - results.xml
 
-build job:
+deploy job:
   stage: deploy
   before_script:
     - pip install -r ./requirements.txt -U
