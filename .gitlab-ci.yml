@@ -1,6 +1,12 @@
-unit_test:
+stages:
+  - build
+  - test
+  - deploy
+
+image: python:3.7-stretch
+
+test job:
   stage: test
-  image: python:3.7-stretch
   before_script:
     - pip install -r ./requirements.txt -U
   only:
@@ -22,5 +28,19 @@ unit_test:
   artifacts:
     paths:
     reports:
-      junit: 
+      junit:
         - results.xml
+
+build job:
+  stage: build
+  before_script:
+    - pip install -r ./requirements.txt -U
+  only:
+    refs:
+      - tags
+      - master
+  script:
+    - python setup.py sdist bdist_wheel
+  artifacts:
+    paths:
+      - dist/

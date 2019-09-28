@@ -16,6 +16,7 @@ pysomq/_version.py
 dist/
 
 build/
+*.pyc
 
 pysomq/__init__.pyc
 
