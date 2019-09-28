@@ -13,7 +13,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://gitlab.com/casabre/pysomq",
-    package_dir={"": "pysomq"},
+    packages=setuptools.find_packages(include=['pysomq', 'testing']),
     install_requires=['pyzmq>=18.1.0', 'pyserial>=3.4'],
     license='MIT',
     platforms=["unix", "linux", "win32"],
