@@ -5,25 +5,25 @@ from threading import Thread
 
 import zmq
 
-from ._utility import bind_socket
+from pysomq._utility import bind_socket, default_serial_port
 
 if not os.environ.get('UNITTEST'):
     from serial import Serial
 else:
-    from testing.DummySerial import DummySerial as Serial
+    from tests.DummySerial import DummySerial as Serial
 
 
 class SerialServer(Process):
-    def __init__(self, streaming: str = 'tcp://*:5555', listening: str = 'tcp://*:5556', timeout=1,
+    def __init__(self, streaming_socket: str = 'tcp://*:5555', listening_socket: str = 'tcp://*:5556', timeout=1,
                  *args, **kwargs):
         self._run = False
         self._mq_context = None
         self._mq_streaming = None
         self._mq_listening = None
-        self._streaming_socket = streaming
-        self._listening_socket = listening
-        self._serial_port = None
-        self._baudrate = None
+        self._streaming_socket = streaming_socket
+        self._listening_socket = listening_socket
+        self._serial_port = default_serial_port()
+        self._baudrate = 9600
         if 'port' in kwargs:
             self._serial_port = kwargs.pop('port')
         if 'baudrate' in kwargs:
@@ -37,7 +37,6 @@ class SerialServer(Process):
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         self._run = False
-        self._cleanup_zmq()
 
     def __del__(self):
         self._run = False
@@ -67,7 +66,6 @@ class SerialServer(Process):
 
     def stop(self) -> None:
         self._run = False
-        super(SerialServer, self).stop()
 
     def terminate(self) -> None:
         self._run = False

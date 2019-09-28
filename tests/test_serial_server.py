@@ -6,7 +6,7 @@ import zmq
 
 from pysomq import SerialServer
 from pysomq._utility import subscribe_socket, connect_socket
-from testing._utility import listen_socket, listen_feedback_pull, stream_socket, stream_subscribe
+from tests._utility import listen_socket, listen_feedback_pull, stream_socket, stream_subscribe
 
 
 class TestSerialServer(unittest.TestCase):
@@ -16,7 +16,7 @@ class TestSerialServer(unittest.TestCase):
 
     def setUp(self) -> None:
         super(TestSerialServer, self).setUp()
-        self._server = SerialServer(stream_socket, listen_socket, timeout=0.001)
+        self._server = SerialServer(streaming_socket=stream_socket, listening_socket=listen_socket, timeout=0.001)
         self._server.start()
         while not self._server.is_alive():
             pass

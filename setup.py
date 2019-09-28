@@ -16,7 +16,7 @@ setuptools.setup(
     package_dir={"": "pysomq"},
     install_requires=['pyzmq>=18.1.0', 'pyserial>=3.4'],
     license='MIT',
-    platforms=["linux", "win32"],
+    platforms=["unix", "linux", "win32"],
     classifiers=[
         'Development Status :: 4 - Beta',
         "Programming Language :: Python :: 3",

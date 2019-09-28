@@ -6,7 +6,7 @@ unit_test:
   only:
     changes:
       - pysomq/*
-      - testing/*
+      - tests/*
     refs:
       - pushes
       - triggers
@@ -17,7 +17,8 @@ unit_test:
     refs:
       - master
   script:
-    - UNITTEST=1 pytest --junitxml=results.xml
+    - mypy --ignore-missing-imports .
+    - UNITTEST=1 pytest --junitxml=results.xml tests/
   artifacts:
     paths:
     reports:

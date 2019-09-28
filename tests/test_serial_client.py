@@ -6,7 +6,7 @@ import zmq
 
 from pysomq import SerialServer, SerialClient
 from pysomq._utility import connect_socket
-from testing._utility import listen_socket, listen_feedback_pull, stream_socket
+from tests._utility import listen_socket, listen_feedback_pull, stream_socket
 
 
 class TestSerialClient(unittest.TestCase):
@@ -20,7 +20,7 @@ class TestSerialClient(unittest.TestCase):
         self._server.start()
         while not self._server.is_alive():
             pass
-        self._client = SerialClient(stream_socket, listen_socket)
+        self._client = SerialClient(streaming_socket=stream_socket, listening_socket=listen_socket)
         sleep(0.02)  # Wait until everything is initialized in run -> serial and threads
         debug(f'Server and client setup ann running')
 
