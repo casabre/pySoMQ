@@ -32,7 +32,7 @@ test job:
         - results.xml
 
 build job:
-  stage: build
+  stage: deploy
   before_script:
     - pip install -r ./requirements.txt -U
   only:
