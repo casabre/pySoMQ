@@ -6,7 +6,7 @@ import zmq
 
 from pysomq import SerialServer
 from pysomq._utility import subscribe_socket, connect_socket
-from tests._utility import listen_socket, listen_feedback_pull, stream_socket, stream_subscribe
+from tests._utility import listen_socket, listen_feedback_pull, stream_socket, stream_subscribe, listen_subscribe
 
 
 class TestSerialServer(unittest.TestCase):
@@ -38,7 +38,7 @@ class TestSerialServer(unittest.TestCase):
     def test_listening(self):
         to_test = 'sent\r\n'
         mq_feedback = connect_socket(listen_feedback_pull, zmq.PULL)
-        mq_config_sender = connect_socket(listen_socket, zmq.REQ)
+        mq_config_sender = connect_socket(listen_subscribe, zmq.REQ)
         debug(f'Send {to_test} over configuration socket')
         mq_config_sender.send(to_test.encode())
         mq_config_sender.recv()
@@ -51,8 +51,8 @@ class TestSerialServer(unittest.TestCase):
         to_test1 = 'sent1\r\n'
         to_test2 = 'sent2\r\n'
         mq_feedback = connect_socket(listen_feedback_pull, zmq.PULL)
-        mq_config_sender1 = connect_socket(listen_socket, zmq.REQ)
-        mq_config_sender2 = connect_socket(listen_socket, zmq.REQ)
+        mq_config_sender1 = connect_socket(listen_subscribe, zmq.REQ)
+        mq_config_sender2 = connect_socket(listen_subscribe, zmq.REQ)
         debug(f'Send {to_test1} over configuration socket 1')
         mq_config_sender1.send(to_test1.encode())
         mq_config_sender1.recv()
