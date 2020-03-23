@@ -29,6 +29,7 @@ class SerialServer(Process):
         if 'baudrate' in kwargs:
             self._baudrate = kwargs.pop('baudrate')
         self._serial: Serial = None
+        self._timeout = 0
         self.timeout = timeout  # [s]
         super(SerialServer, self).__init__(*args, **kwargs)
 

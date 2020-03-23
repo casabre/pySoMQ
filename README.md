@@ -5,17 +5,15 @@ This package utilizes the Python bindings of [ØMQ](http://www.zeromq.org) in or
 ## Getting started
 
 ### Run as permanent streaming service
-
-If you want to run the SerialServer as a permanent streamer, please start the module with our specific parameters by
-
+If you want to run the SerialServer as a permanent streamer, please 
+start the module with your specific parameters by
 ```bash
 $ python -m pysomq --serial-port=YourSerialPort --serial-baudrate=YourBaudrate --timeout=1 --streaming-socket=tcp://*:5555 --listening-socket=tcp://*:5556
 ```
 
 ### Stream from script
-
-If you want to utilize the SerialServer within your own scripts, start streaming by using the following snippet with our parameters
-
+If you want to utilize the SerialServer within your own scripts, start
+streaming by using the following snippet with your parameters
 ```python
 import pysomq
 
@@ -32,9 +30,8 @@ serial_server.start()
 ```
 
 ### Receive streaming data
-
-If you want to utilize the SerialServer within your own scripts, start receiving by using the following snippet with our parameters
-
+If you want to utilize the SerialServer within your own scripts, start 
+receiving by using the following snippet with your parameters
 ```python
 import pysomq
 
