@@ -23,7 +23,7 @@ baudrate = 9600
 stream_socket = 'tcp://*:5555'
 listen_socket = 'tcp://*:5556'
 timeout = 1
-serial_server = pysomq.SerialServer(port='/dev/ttyS0', baudrate=baudrate,
+serial_server = pysomq.SerialServer(port=serial_port, baudrate=baudrate,
                                     streaming_socket=stream_socket, listening_socket=listen_socket,
                                     timeout=timeout)
 serial_server.start()
