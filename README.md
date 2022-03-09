@@ -4,12 +4,18 @@ This package utilizes the Python bindings of [ØMQ](http://www.zeromq.org) in or
 
 ## Getting started
 
+Install the package from Pypi
+
+```bash
+pip install pysomq
+```
+
 ### Run as permanent streaming service
 
 If you want to run the SerialServer as a permanent streamer, please start the module with our specific parameters by
 
 ```bash
-$ python -m pysomq --serial-port=YourSerialPort --serial-baudrate=YourBaudrate --timeout=1 --streaming-socket=tcp://*:5555 --listening-socket=tcp://*:5556
+python -m pysomq --serial-port=YourSerialPort --serial-baudrate=YourBaudrate --timeout=1 --streaming-socket=tcp://*:5555 --listening-socket=tcp://*:5556
 ```
 
 ### Stream from script
@@ -63,9 +69,12 @@ The default values for calling the module or instantiating the classes are
 
 * --listening-socket / listening_socket: tcp://*:5556 respectively tcp://localhost:5556
 
-## Development
+## Contributing
 
-You can get the latest source code from my [Gitlab](https://gitlab.com/serial-over-mq/pysomq) repository. For extension or bugfixes, please create a new branch with final merge request according to [CONTRIBUTING](CONTRIBUTING.MD). Any contribution is appreciated!
-  
-Currently, the Linux and Windows versions are tested and verified. OSX
-and cygwin support has to be tested.
+I welcome any contributions, enhancements, and bug-fixes.  [Open an issue](https://github.com/casabre/pySoMQ/issues) on GitHub and [submit a pull request](https://github.com/casabre/pySoMQ/pulls).
+
+## License
+
+pySoMQ is 100% free and open-source, under the [MIT license](LICENSE). Use it however you want.
+
+This package is [Treeware](http://treeware.earth). If you use it in production, then we ask that you [**buy the world a tree**](https://plant.treeware.earth/casabre/pySoMQ) to thank us for our work. By contributing to the Treeware forest you’ll be creating employment for local families and restoring wildlife habitats.
